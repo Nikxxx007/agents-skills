@@ -10,7 +10,8 @@ This repository contains custom skills for GPT Codex-style agents that help deve
 
 Database optimization is one of the highest-risk areas of backend engineering. A query that _looks_ faster can silently return wrong data, skip rows, produce duplicates, lock a table for minutes, or destroy write throughput under load.
 
-**AI-generated SQL must never be trusted blindly.** These skills are built to help you reason — not to replace your judgment.
+Do **not** blindly run AI-generated SQL against production databases.
+Run all generated SQL in a safe environment first: local, development, staging, or an anonymized copy of production data.
 
 ### What can go wrong
 
@@ -94,24 +95,6 @@ Restart your agent session after install.
 - Generating verification plans with `EXPLAIN (ANALYZE, BUFFERS)`
 - Comparing old vs optimized query behavior for correctness
 - Producing result comparison scripts to validate equivalence
-
----
-
-## Safety warning
-
-Do **not** blindly run AI-generated SQL against production databases.
-
-These skills may generate:
-
-- query rewrites
-- index suggestions
-- schema change suggestions
-- migration drafts
-- rollback drafts
-- performance test scripts
-- result comparison scripts
-
-You are responsible for reviewing and testing everything before use. Run all generated SQL in a safe environment first: local, development, staging, or an anonymized copy of production data.
 
 ---
 
